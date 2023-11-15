@@ -1,6 +1,5 @@
 package calc;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +45,14 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(calc("III*II"));
+		if (args == null) {
+			throw new IllegalArgumentException("Wrong input");
+		}
+		StringBuilder builder = new StringBuilder();
+		for (String arg : args) {
+			builder.append(arg);
+		}
+		System.out.println(calc(builder.toString()));
 	}
 
 	public static String calc(String input) {
