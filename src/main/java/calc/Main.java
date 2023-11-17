@@ -1,5 +1,8 @@
 package calc;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,15 +47,11 @@ public class Main {
 		return builder.toString();
 	}
 
-	public static void main(String[] args) {
-		if (args == null) {
-			throw new IllegalArgumentException("Wrong input");
-		}
-		StringBuilder builder = new StringBuilder();
-		for (String arg : args) {
-			builder.append(arg);
-		}
-		System.out.println(calc(builder.toString()));
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String line = reader.readLine();
+		System.out.println(calc(line));
+		reader.close();
 	}
 
 	public static String calc(String input) {
